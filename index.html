@@ -3,41 +3,313 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mijn Persoonlijke Website</title>
+    <meta name="description" content="Een reis van oorlog naar innovatie - Een portfolio die mijn transformatie en technische groei laat zien">
+    <meta property="og:title" content="Reis van Veerkracht | [Jouw Naam]">
+    <meta property="og:description" content="Een portfolio die mijn reis van Syrië naar web development showcase">
+    <meta property="og:type" content="website">
+    <meta name="theme-color" content="#1a2980">
+    
+    <title>Reis van Veerkracht | [Jouw Naam]</title>
+    
+    <!-- Preload critical assets -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" as="style">
+    <link rel="preload" href="styles/style.css" as="style">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap">
     <link rel="stylesheet" href="styles/style.css">
+
+    <!-- Animation Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
 </head>
 <body>
+    <!-- Loading Screen -->
+    <div class="loader">
+        <div class="loader__content">Loading...</div>
+    </div>
 
-    <header>
-        <h1>Welkom op mijn persoonlijke website</h1>
-        <p>Ontdek wie ik ben en wat mijn leerdoelen zijn voor de minor.</p>
-    </header>
+    <!-- Skip to main content for accessibility -->
+    <a href="#main" class="skip-to-content">Skip to main content</a>
 
-    <section id="about">
-        <h2>Over Mij</h2>
-        <img src="assets/profiel.jpg" alt="Mijn foto">
-        <p>Hallo! Ik ben Aghyad, een tweedejaars HBO-ICT student met interesse in webdesign en IoT-projecten.</p>
-    </section>
+    <div class="portfolio-universe" data-router-wrapper>
+        <canvas id="journey-canvas" aria-hidden="true"></canvas>
+        
+        <header class="cosmic-header" role="banner">
+            <div class="header-container">
+                <div class="header-content">
+                    <div class="profile-section">
+                        <div class="profile-card">
+                            <img 
+                                class="profile-image" 
+                                src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwaOmpUMreDnHg12VV95_IoEfqWdGrlyoC_w&s"
+                                alt="Professional headshot of Aghyad"
+                            >
+                            <div class="profile-info">
+                                <h2>mijn naam</h2>
+                                <p>Van Oorlog naar Innovatie</p>
+                            </div>
+                        </div>
+                    </div>
+ 
+                    
+                    <div class="title-section">
+                        <h1 class="main-title">
+                            <span class="name">mijn naam</span>
+                        </h1>
+                        <p class="subtitle">Van Oorlog naar Innovatie</p>
+                    </div>
+                </div>
+                
+                <nav class="quantum-navigation" role="navigation" aria-label="Main navigation">
+                    <div class="nav-container">
+                        <ul class="nav-list">
+                            <li class="nav-item">
+                                <a href="#journey" data-section="journey" class="nav-link">
+                                    <span class="nav-icon">🚀</span>
+                                    <span class="nav-text">Mijn Reis</span>
+                                    <span class="nav-hover-effect"></span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#goals" data-section="goals" class="nav-link">
+                                    <span class="nav-icon">🎯</span>
+                                    <span class="nav-text">Leerdoelen</span>
+                                    <span class="nav-hover-effect"></span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#projects" data-section="projects" class="nav-link">
+                                    <span class="nav-icon">💻</span>
+                                    <span class="nav-text">Projecten</span>
+                                    <span class="nav-hover-effect"></span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#footer" data-section="contact" class="nav-link">
+                                    <span class="nav-icon">📧</span>
+                                    <span class="nav-text">Contact</span>
+                                    <span class="nav-hover-effect"></span>
+                                </a>
+                            </li>
+                        </ul>
+                        <div class="active-indicator"></div>
+                    </div>
+                </nav>
+            </div>
+        </header>
 
-    <section id="goals">
-        <h2>Mijn Leerdoelen</h2>
-        <ul>
-            <li>API’s leren gebruiken en integreren in een website</li>
-            <li>Meer ervaring krijgen met frontend design (HTML, CSS, JavaScript)</li>
-            <li>Betere code-structuur en best practices leren toepassen</li>
-        </ul>
-    </section>
+        <main id="main" class="journey-narrative" data-scroll-container>
+            <section id="journey" class="narrative-section journey-section" data-scroll-section>
+                <div class="section-content">
+                    <h2 class="section-title">Mijn Reis van Transformatie</h2>
+                    <div class="journey-timeline">
+            
+                        <!-- Leaving Syria -->
+                        <article class="timeline-node" data-impact="high">
+                            <div class="node-icon" aria-hidden="true">🏠</div>
+                            <div class="node-content">
+                                <h3>Oorsprong in Syrië</h3>
+                                <p>Mijn reis begon in Syrië, een land van geschiedenis en cultuur, maar ook van conflicten. Ik verliet mijn universiteit en mijn thuisland, niet wetend wat de toekomst zou brengen.</p>
+                            </div>
+                        </article>
+            
+                        <!-- Arriving in the Netherlands -->
+                        <article class="timeline-node" data-impact="high">
+                            <div class="node-icon" aria-hidden="true">✈️</div>
+                            <div class="node-content">
+                                <h3>Aankomst in Nederland</h3>
+                                <p>Ik begon mijn leven helemaal opnieuw in Nederland. Een nieuw land, een nieuwe cultuur, en een onbekende taal. Mijn eerste uitdaging was het vinden van mijn plek in een compleet nieuwe omgeving.</p>
+                            </div>
+                        </article>
+            
+                        <!-- Learning Dutch -->
+                        <article class="timeline-node" data-impact="medium">
+                            <div class="node-icon" aria-hidden="true">🌐</div>
+                            <div class="node-content">
+                                <h3>Taalbarrière Doorbroken</h3>
+                                <p>Nederlands leren werd mijn eerste en belangrijkste stap. Zonder de taal te spreken kon ik niet studeren, werken of integreren. Het was moeilijk, maar uiteindelijk werd elke nieuwe zin een stap vooruit.</p>
+                            </div>
+                        </article>
+            
+                        <!-- Adapting to a new education system -->
+                        <article class="timeline-node" data-impact="medium">
+                            <div class="node-icon" aria-hidden="true">📚</div>
+                            <div class="node-content">
+                                <h3>Aanpassen aan een Nieuw Onderwijssysteem</h3>
+                                <p>Studeren in Nederland was een enorme verandering vergeleken met Syrië. Hier draait het om zelfstandigheid en projectmatig werken, iets waar ik mij eerst niet op voorbereid voelde. Maar doorzettingsvermogen en nieuwsgierigheid hielpen mij vooruit.</p>
+                            </div>
+                        </article>
+            
+                        <!-- Living far from family -->
+                        <article class="timeline-node" data-impact="high">
+                            <div class="node-icon" aria-hidden="true">💔</div>
+                            <div class="node-content">
+                                <h3>Ver van mijn Familie</h3>
+                                <p>Het moeilijkste deel was het leven zonder mijn familie. Jarenlang kon ik hen niet zien of spreken zoals ik wilde. De afstand was zowel fysiek als emotioneel een uitdaging.</p>
+                            </div>
+                        </article>
+            
+                        <!-- Reuniting with family -->
+                        <article class="timeline-node" data-impact="high">
+                            <div class="node-icon" aria-hidden="true">❤️</div>
+                            <div class="node-content">
+                                <h3>Hereniging na Vrijheid</h3>
+                                <p>Na de bevrijding van Syrië veranderde alles. De mogelijkheid om mijn familie weer te zien gaf me een nieuw perspectief op mijn reis en de obstakels die ik had overwonnen.</p>
+                            </div>
+                        </article>
+            
+                    </div>
+                </div>
+            </section>
+            
 
-    <section id="api-data">
-        <h2>API Data</h2>
-        <p>Hieronder zie je gegevens uit de FDND API:</p>
-        <div id="api-output">Data wordt geladen...</div>
-    </section>
+            <section id="goals" class="narrative-section goals-section" data-scroll-section>
+                <div class="section-content">
+                    <h2 class="section-title">Mijn Leerdoelen voor de Minor</h2>
+                    
+                    <div class="goals-container">
+                        
+                        <article class="goal-card" data-progress="80">
+                            <div class="goal-header">
+                                <div class="goal-icon">💻</div>
+                                <h3>Technische Vaardigheden Verdiepen</h3>
+                            </div>
+                            <p class="goal-description">
+                                Verdieping in moderne web development, inclusief geavanceerde technieken en frameworks.
+                            </p>
+                            <ul class="goal-list">
+                                <li><strong>Frontend Expertise:</strong> HTML, CSS en JavaScript naar een hoger niveau tillen.</li>
+                                <li><strong>Backend Integratie:</strong> Dieper inzicht in databases en server-side ontwikkeling.</li>
+                                <li><strong>Softwarearchitectuur:</strong> Effectieve en schaalbare weboplossingen ontwerpen.</li>
+                            </ul>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 80%;"></div>
+                            </div>
+                        </article>
+            
+                        <article class="goal-card" data-progress="75">
+                            <div class="goal-header">
+                                <div class="goal-icon">🛠️</div>
+                                <h3>Prototyping & Ontwikkeling</h3>
+                            </div>
+                            <p class="goal-description">
+                                Hands-on ervaring met webontwikkeling, van concept tot implementatie.
+                            </p>
+                            <ul class="goal-list">
+                                <li><strong>UX/UI Design:</strong> Gebruikersgerichte interfaces creëren.</li>
+                                <li><strong>Responsive Development:</strong> Websites optimaliseren voor alle apparaten.</li>
+                                <li><strong>Projectmatig Werken:</strong> Effectieve samenwerking en probleemoplossing in teams.</li>
+                            </ul>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 75%;"></div>
+                            </div>
+                        </article>
+            
+                    </div>
+                </div>
+            </section>
+            
 
-    <footer>
-        <p>© 2025 Aghyad | <a href="https://github.com/aghyad111/mijn-website">GitHub Repo</a></p>
-    </footer>
+            <section id="projects" class="narrative-section projects-section" data-scroll-section>
+                <div class="section-content">
+                    <h2 class="section-title">Mijn Projecten</h2>
+                    <div class="projects-grid">
+            
+                        <!-- IoT Weather Station -->
+                        <article class="project-card" data-technology="iot">
+                            <div class="project-icon">
+                                <img src="assets/weather-icon.svg" alt="IoT Weerstation">
+                            </div>
+                            <div class="project-info">
+                                <h3>IoT Weather Station</h3>
+                                <p>Geavanceerd weersmonitoringssysteem ontwikkeld met IoT-technologieën.</p>
+                                <div class="project-tags">
+                                    <span>Wemos D1 Mini</span>
+                                    <span>C++</span>
+                                    <span>Docker</span>
+                                    <span>MariaDB</span>
+                                    <span>JavaScript Charts</span>
+                                </div>
+                                <a href="#" class="project-link">Meer info →</a>
+                            </div>
+                        </article>
+            
+                        <!-- Security Projects -->
+                        <article class="project-card" data-technology="security">
+                            <div class="project-icon">
+                                <img src="assets/security-icon.svg" alt="Security Project">
+                            </div>
+                            <div class="project-info">
+                                <h3>Beveiligde Login Systemen</h3>
+                                <p>Twee innovatieve beveiligingsprojecten gericht op cybersecurity.</p>
+                                
+                                <div class="sub-projects">
+                                    <div class="sub-project">
+                                        <h4>🔑 Wachtwoord Generator</h4>
+                                        <div class="project-tags">
+                                            <span>Django</span>
+                                            <span>Python</span>
+                                            <span>Beveiliging</span>
+                                        </div>
+                                    </div>
+            
+                                    <div class="sub-project">
+                                        <h4>👨‍💻 Rol Gebaseerd Toegangssysteem</h4>
+                                        <div class="project-tags">
+                                            <span>Toegangscontrole</span>
+                                            <span>Gebruikersrollen</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <a href="#" class="project-link">Meer info →</a>
+                            </div>
+                        </article>
+            
+                    </div>
+                </div>
+            </section>
+            
 
-    <script src="scripts/script.js"></script>
+            
+        </main>
+
+        <footer id="footer" class="cosmic-footer" role="contentinfo">
+            <div class="footer-container">
+                <h3 class="footer-title">Laten we Verbinden</h3>
+        
+                <div class="social-links">
+                    <a href="https://www.linkedin.com/feed/" class="social-link linkedin" target="_blank" rel="noopener noreferrer">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" alt="LinkedIn">
+                        <span>LinkedIn</span>
+                    </a>
+                    <a href="https://github.com/aghyad111" class="social-link github" target="_blank" rel="noopener noreferrer">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub">
+                        <span>GitHub</span>
+                    </a>
+                    <a href="mailto:your.email@example.com" class="social-link email">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Gmail_Icon.png" alt="Email">
+                        <span>Email</span>
+                    </a>
+                </div>
+        
+                <p class="footer-credits">© 2025 Aghyad | Gemaakt met passie </p>
+            </div>
+        </footer>
+        
+    </div>
+
+    <!-- Scripts -->
+    <script type="importmap">
+    {
+        "imports": {
+            "three": "https://unpkg.com/three@0.157.0/build/three.module.js"
+        }
+    }
+    </script>
+    <script type="module" src="scripts/script.js"></script>
+    <script type="module" src="scripts/myName.js"></script>
+
 </body>
 </html>
