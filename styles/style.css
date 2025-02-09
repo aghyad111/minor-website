@@ -201,7 +201,11 @@ body.loaded .loader {
 .name {
     background: linear-gradient(135deg, #26d0ce, #1a5fa2);
     -webkit-background-clip: text;
+    -moz-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
+    -moz-text-fill-color: transparent;
+    color: transparent;
 }
 
 .subtitle {
@@ -605,25 +609,111 @@ main {
 
 /* Timeline */
 .journey-timeline {
-    display: grid;
-    gap: var(--space-lg);
+    position: relative;
     max-width: 800px;
     margin: 0 auto;
+    padding: 2rem;
 }
 
 .timeline-node {
-    display: grid;
-    grid-template-columns: auto 1fr;
-    gap: var(--space-md);
-    padding: var(--space-md);
-    background: rgba(26, 41, 128, 0.2);
-    border-radius: var(--radius-md);
-    transform-style: preserve-3d;
-    transition: transform var(--transition-medium);
+    position: relative;
+    padding-bottom: 4rem; /* Extra space for arrows */
 }
 
-.timeline-node:hover {
-    transform: translateZ(20px);
+.carousel-arrows {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    z-index: 10;
+    pointer-events: none;
+    padding: 0 1rem;
+}
+
+.arrow-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, rgba(38, 208, 206, 0.2), rgba(26, 41, 128, 0.2));
+    color: var(--color-secondary);
+    border: 2px solid rgba(38, 208, 206, 0.3);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: 
+        all 0.3s ease,
+        transform 0.2s ease;
+    pointer-events: auto;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    font-size: 1.8rem;
+    font-weight: bold;
+    backdrop-filter: blur(5px);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    outline: none;
+}
+
+.arrow-btn::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(135deg, 
+        rgba(38, 208, 206, 0.1), 
+        rgba(26, 41, 128, 0.1)
+    );
+    border-radius: 50%;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: -1;
+}
+
+.arrow-btn:hover {
+    color: var(--color-text);
+    border-color: rgba(38, 208, 206, 0.5);
+    transform: scale(1.05) translateY(-2px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.arrow-btn:hover::before {
+    opacity: 1;
+}
+
+.arrow-btn:active {
+    transform: scale(0.95);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.arrow-btn:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+    pointer-events: none;
+    transform: none;
+    box-shadow: none;
+}
+
+.arrow-btn.prev-btn::after {
+    content: '←';
+}
+
+.arrow-btn.next-btn::after {
+    content: '→';
+}
+
+@media (max-width: 768px) {
+    .carousel-arrows {
+        padding: 0 0.5rem;
+    }
+
+    .arrow-btn {
+        width: 50px;
+        height: 50px;
+        font-size: 1.5rem;
+    }
 }
 
 .node-icon {
@@ -1064,4 +1154,232 @@ main {
     font-size: 0.9rem;
     margin-top: 1rem;
     opacity: 0.8;
+}
+/* Syria Theme Styles */
+.syria-theme {
+    background: linear-gradient(135deg, #F9FAFB, #E5E7EB);
+    color: #111827;
+    min-height: 100vh;
+    width: 100%;
+}
+
+.syria-hero {
+    position: relative;
+    height: 80vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0 1.5rem;
+}
+
+.syria-hero-image {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(75%) contrast(125%) saturate(150%);
+}
+
+.syria-hero-content {
+    position: relative;
+    z-index: 10;
+    max-width: 48rem;
+}
+
+.syria-hero-title {
+    font-size: 4rem;
+    font-weight: 800;
+    color: white;
+    letter-spacing: -0.025em;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.syria-hero-title span {
+    color: #FBB03B;
+}
+
+.syria-featured {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 4rem 1.5rem;
+}
+
+.syria-grid {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 2.5rem;
+}
+
+.syria-card {
+    background: white;
+    border-radius: 0.75rem;
+    overflow: hidden;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.syria-card:hover {
+    transform: scale(1.05);
+}
+
+.syria-card-image {
+    width: 100%;
+    height: 18rem;
+    object-fit: cover;
+    filter: brightness(100%) contrast(110%) saturate(125%);
+}
+
+.syria-card-content {
+    padding: 1.5rem;
+}
+
+.syria-card-title {
+    font-size: 1.875rem;
+    font-weight: 700;
+    color: #111827;
+}
+
+.syria-card-description {
+    color: #4B5563;
+    margin-top: 0.75rem;
+}
+
+.back-button {
+    position: fixed;
+    top: 2rem;
+    left: 2rem;
+    padding: 0.75rem 1.5rem;
+    background: rgba(255, 255, 255, 0.9);
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    z-index: 100;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.back-button:hover {
+    background: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive Adjustments */
+@media (min-width: 768px) {
+    .syria-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .syria-hero-title {
+        font-size: 5rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .syria-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+/* Animation Classes */
+.fade-in {
+    opacity: 0;
+    transform: translateY(-20px);
+    animation: fadeIn 1s forwards;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Syria Theme Card Interactivity Styles */
+.syria-card-image-container {
+    position: relative;
+    overflow: hidden;
+    border-radius: 0.75rem;
+}
+
+.syria-card {
+    position: relative;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.syria-card-image {
+    width: 100%;
+    height: 18rem;
+    object-fit: cover;
+    filter: brightness(100%) contrast(110%) saturate(125%);
+    transition: transform 0.4s ease, filter 0.4s ease;
+}
+
+.syria-card-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        to bottom, 
+        rgba(0,0,0,0.7), 
+        rgba(0,0,0,0.5)
+    );
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    padding: 1rem;
+    color: white;
+    text-align: center;
+}
+
+.syria-card-details {
+    transform: translateY(20px);
+    opacity: 0;
+    transition: 
+        transform 0.4s ease, 
+        opacity 0.4s ease;
+}
+
+.syria-card.interactive-card {
+    cursor: pointer;
+}
+
+.syria-card.interactive-card:hover .syria-card-image {
+    transform: scale(1.1);
+    filter: brightness(110%) contrast(120%) saturate(135%);
+}
+
+.syria-card.interactive-card:hover .syria-card-overlay {
+    opacity: 1;
+}
+
+.syria-card.interactive-card:hover .syria-card-details {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.syria-card.interactive-card.details-expanded .syria-card-image {
+    transform: scale(1.1);
+}
+
+.syria-card.interactive-card.details-expanded .syria-card-overlay {
+    opacity: 1;
+}
+
+.syria-card.interactive-card.details-expanded .syria-card-details {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+@media (max-width: 768px) {
+    .syria-card-image {
+        height: 15rem;
+    }
 }
